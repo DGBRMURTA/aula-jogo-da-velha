@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuleiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="titulo" onclick="limpa()"><p>Jogo da Velha</p></div>
+    <div class="tabuleiro">
+        <div class="container">
+            <div class="bloco" id="op1" onclick="Mostrar(1)"></div>
+            <div class="bloco" id="op2" onclick="Mostrar(2)"></div>
+            <div class="bloco" id="op3" onclick="Mostrar(3)"></div>
+        </div>
+        <div class="container">
+            <div class="bloco" id="op4" onclick="Mostrar(4)"></div>
+            <div class="bloco" id="op5" onclick="Mostrar(5)"></div>
+            <div class="bloco" id="op6" onclick="Mostrar(6)"></div>
+        </div>
+        <div class="container">
+            <div class="bloco" id="op7" onclick="Mostrar(7)"></div>
+            <div class="bloco" id="op8" onclick="Mostrar(8)"></div>
+            <div class="bloco" id="op9" onclick="Mostrar(9)"></div>
+        </div>
+
+    </div>
+    <script >
+        cliques = 0
+        function Mostrar(qual){
+            cliques = cliques + 1
+            if(qual == 1){
+                if(cliques == 1){
+                    op1.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op1.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 2){
+                if(cliques == 1){
+                    op2.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op2.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 3){
+                if(cliques == 1){
+                    op3.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op3.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 4){
+                if(cliques == 1){
+                    op4.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op4.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 5){
+                if(cliques == 1){
+                    op5.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op5.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 6){
+                if(cliques == 1){
+                    op6.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op6.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 7){
+                if(cliques == 1){
+                    op7.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op7.innerHTML="O"
+                    cliques = 0
+                }
+            }if(qual == 8){
+                if(cliques == 1){
+                    op8.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op8.innerHTML="O"
+                    cliques = 0
+                }
+            }
+            if(qual == 9){
+                if(cliques == 1){
+                    op9.innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    op9.innerHTML="O"
+                    cliques = 0
+                }
+            }
+
+
+
+
+        }
+        function limpa(){
+            cliques = 0;
+            document.getElementsByClassName('tabuleiro')[0].innerHTML = '<div class="container">'
+                                     +'<div class="bloco" id="op1" onclick="Mostrar(1)"></div>'
+                                     +'<div class="bloco" id="op2" onclick="Mostrar(2)"></div>'
+                                     +'<div class="bloco" id="op3" onclick="Mostrar(3)"></div>'
+                                     +'</div>'
+                                     +'<div class="container">'
+                                     +'<div class="bloco" id="op4" onclick="Mostrar(4)"></div>'
+                                     +'<div class="bloco" id="op5" onclick="Mostrar(5)"></div>'
+                                     +'<div class="bloco" id="op6" onclick="Mostrar(6)"></div>'
+                                     +'</div>'
+                                     +'<div class="container">'
+                                     +'<div class="bloco" id="op7" onclick="Mostrar(7)"></div>'
+                                     +'<div class="bloco" id="op8" onclick="Mostrar(8)"></div>'
+                                     +'<div class="bloco" id="op9" onclick="Mostrar(9)"></div>'
+                                     +'</div>'
+        }
+    </script>
+</body>
+</html>
