@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuleiro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bota"><input type="button" id="limpa" value="limpar" onclick="limpa()" class="botao"/></div>
+    <div class="tabuleiro">
+        <div class="container">
+            <div class="bloco" id="op1" onclick="Mostrar(1)"></div>
+            <div class="bloco" id="op2" onclick="Mostrar(2)"></div>
+            <div class="bloco" id="op3" onclick="Mostrar(3)"></div>
+        </div>
+        <div class="container">
+            <div class="bloco" id="op4" onclick="Mostrar(4)"></div>
+            <div class="bloco" id="op5" onclick="Mostrar(5)"></div>
+            <div class="bloco" id="op6" onclick="Mostrar(6)"></div>
+        </div>
+        <div class="container">
+            <div class="bloco" id="op7" onclick="Mostrar(7)"></div>
+            <div class="bloco" id="op8" onclick="Mostrar(8)"></div>
+            <div class="bloco" id="op9" onclick="Mostrar(9)"></div>
+        </div>
+        
+    </div>
+    <script>
+        cliques = 0
+        var elm = document.getElementsByClassName('bloco')
+        function Mostrar(qual){
+            jogador = ""
+            if(elm[qual -1].innerHTML == "" ){
+                cliques = cliques + 1
+            
+                if(cliques == 1){
+                    elm[qual -1].innerHTML = "X"
+                }
+                else if(cliques == 2){
+                    elm[qual -1].innerHTML="O"
+                    cliques = 0
+                }
+            }
+            for(i=0;i<3;i++){
+                if(elm[i*3].innerHTML != "" && (elm[i*3].innerHTML == elm[1+i*3].innerHTML) && (elm[1+i*3].innerHTML == elm[2+i*3].innerHTML)){
+                    var x = i*3
+                    var y = 1+i*3
+                    var z = 2+i*3 
+                    var jogador = elm[i*3].innerHTML
+                }else if(elm[i].innerHTML != "" && (elm[i].innerHTML == elm[i+3].innerHTML) && (elm[i+3].innerHTML == elm[i+6].innerHTML)){
+                    var x = i
+                    var y = i+3
+                    var z = i+6 
+                    var jogador = elm[i].innerHTML
+                }
+            }
+            if(elm[0].innerHTML != "" && (elm[0].innerHTML == elm[4].innerHTML) && (elm[4].innerHTML == elm[8].innerHTML)){
+                    var x = 0
+                    var y = 4
+                    var z = 8
+                    var jogador = elm[0].innerHTML
+
+            }
+            if(elm[2].innerHTML != "" && (elm[2].innerHTML == elm[4].innerHTML) && (elm[4].innerHTML == elm[6].innerHTML)){
+                    var x = 2
+                    var y = 4
+                    var z = 6
+                    var jogador = elm[2].innerHTML
+            }
+
+            if(jogador != ""){
+                elm[x].style=  "background-color: red;"
+                elm[y].style = "background-color: red;"
+                elm[z].style = "background-color: red;"
+                document.getElementById('limpa').style = "display: block;"
+            window.speechSynthesis.speak(new SpeechSynthesisUtterance(`O jogador ${jogador} ganhou`))
+           }
+        }
+        function limpa(){
+        cliques = 0;
+        document.getElementsByClassName('bloco').innerHTML = "";
+        }
+    </script>
+</body>
+</html>
